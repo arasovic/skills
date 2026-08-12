@@ -1,6 +1,6 @@
 # Skills
 
-Useful workflows, packaged as agent skills.
+A curated collection of agent skills I use across projects.
 
 ## Install
 
