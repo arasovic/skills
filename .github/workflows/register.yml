@@ -2,13 +2,31 @@ name: Register on skills.sh
 
 # skills.sh builds its catalog from `npx skills add` telemetry, not by crawling
 # GitHub. A skill stays invisible there until someone installs it through the
-# CLI. This installs the repo once per change into a throwaway directory so new
-# skills show up on https://skills.sh/arasovic/skills.
+# CLI. This installs the repo into a throwaway directory so new skills show up
+# on https://skills.sh/arasovic/skills.
+#
+# Manual trigger only. Do not add a push trigger — its absence is deliberate,
+# not an oversight. Listing a skill is one-way from our side:
+#
+#   - There is no self-serve way to withdraw a listing. skills.sh has no
+#     sign-in or management page, and the CLI's `remove` only uninstalls from
+#     the local machine; it does not touch the catalog.
+#   - Deleting a skill from this repository does not delist it. It stays
+#     publicly installable: vercel-labs/skills#1781.
+#   - Re-running this workflow does not prune stale entries either. A
+#     `pi-worker` skill that has never existed in this repository is listed
+#     under arasovic/skills, told visitors to run a command that cannot
+#     succeed, and survived a successful run of this workflow on 2026-08-26.
+#     Removal request: vercel-labs/skills#2066.
+#   - The only removal path is asking the registry maintainers in an issue,
+#     and that queue is slow — requests from June and July 2026 are still open.
+#
+# So a half-finished, misnamed, or accidentally committed skill would become
+# publicly listed the moment it landed on main, and could not be taken back
+# except by asking a stranger and waiting weeks. Publishing is a decision;
+# run this workflow by hand when a skill is ready.
 
 on:
-  push:
-    branches: [main]
-    paths: ['skills/**']
   workflow_dispatch:
 
 jobs:
