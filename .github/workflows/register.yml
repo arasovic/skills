@@ -1,0 +1,22 @@
+name: Register on skills.sh
+
+# skills.sh builds its catalog from `npx skills add` telemetry, not by crawling
+# GitHub. A skill stays invisible there until someone installs it through the
+# CLI. This installs the repo once per change into a throwaway directory so new
+# skills show up on https://skills.sh/arasovic/skills.
+
+on:
+  push:
+    branches: [main]
+    paths: ['skills/**']
+  workflow_dispatch:
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npx -y skills@latest add "https://github.com/${{ github.repository }}" --all
+        working-directory: ${{ runner.temp }}
