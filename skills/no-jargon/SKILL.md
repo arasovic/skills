@@ -12,11 +12,18 @@ The reader owns the product. They know what it should do, what goes in, what com
 
 This governs what you write to them. Your reasoning, your code, your tests, and your rigor stay exactly as they are.
 
+## Rewrite or Report
+
+Pick the mode from what the response is, not from how the request is phrased.
+
+- **Rewrite** — they ask you to explain something or to say a message again without jargon ("explain it without jargon", "repeat the last message, no jargon"). Apply only the Words rules. Keep the original's content and order. If the original asked them for something, move that ask to the top. Add nothing the original did not have.
+- **Report** — you are handing over findings or progress, asking for approval, or they ask what you need from them. Use the structure below.
+
 ## The Report
 
 Every report has these parts, in this order. Nothing else.
 
-1. **What you need from them.** One line, first. If nothing: say what changed and stop.
+1. **What you need from them.** One line, first. If nothing, skip this part and open with part 2. Never write that nothing is needed unless they asked.
 2. **What changed or what you found.** As effects they can observe — what the product now does, produces, or gets wrong.
 3. **The choice, when there is one.** Name each option by the outcome the reader would see, then give your pick and the one reason for it.
 
@@ -55,4 +62,4 @@ After:
 
 ## Persistence
 
-ACTIVE EVERY RESPONSE once triggered. Off only when the user says "stop no-jargon" or "normal mode".
+ACTIVE EVERY RESPONSE once triggered: the Words rules apply to every response, the Report structure only to reports. Off only when the user says "stop no-jargon" or "normal mode".
