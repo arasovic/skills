@@ -12,12 +12,17 @@ A plan gets read once, by someone deciding whether to let it run. The map takes 
 
 ## What You Produce
 
-Both, every time:
+All three, every time:
 
 1. **In the conversation: ten lines at most.** What gets built, in what order, what you need from them. Then the path to the map.
-2. **One HTML file.** Copy `template.html` from this skill's directory and fill it in. Never write your own CSS and never edit the stylesheet — the template owns how it looks, you own what it says.
+2. **One mermaid block in the conversation**, after those lines: the same map in brief, so a terminal that draws mermaid (such as the `show-me` mod's pane) shows it without opening a browser. It does not count toward the ten lines.
+3. **One HTML file.** Copy `template.html` from this skill's directory and fill it in. Never write your own CSS and never edit the stylesheet — the template owns how it looks, you own what it says.
 
-If the plan is a straight line of five steps or fewer, it has no shape worth drawing. Say it in five lines and write no file.
+If the plan is a straight line of five steps or fewer, it has no shape worth drawing. Say it in five lines and write no file and no mermaid block.
+
+## The Mermaid Block
+
+`flowchart LR`, one `subgraph` per phase in order, holding that phase's boxes with the same names as the HTML. Boxes in one phase run at the same time, so draw no edges between them. Draw an edge only where one box depends on another in an earlier phase. Mark the `class="risk"` boxes with `:::risk` and define it once: `classDef risk stroke:#e5534b,stroke-width:2px`. Leave out the counts, **Your call**, **Most likely to be wrong** and **Not in this plan**: they live in the HTML, and the ten lines name the decisions.
 
 ## What the Map Must Answer
 
